@@ -1,0 +1,29 @@
+<% include header_min %>
+  <div class="container">
+    <h3 class="title">分类列表</h3>
+    <table class="table listuser-table">
+      <tr>
+        <td>图片</td>
+        <td>排序</td>
+        <td>分类名称</td>
+        <td>介绍</td>
+        <td>时间</td>
+        <td>操作</td>
+      </tr>
+      <% datalist.forEach(function(val){ %>
+      <tr>
+        <td><img src="/<%=val.imgUrl%>"></td>
+          <td class="a"><%=val.order%></td>
+          <td class="a"><%=val.name%></td>
+          <td class="a"><%=val.info%></td>
+          <td class="a"><%=val.ctime.toLocaleString()%></td>
+          <td class="a">
+            <a href="/admin/catEdit/<%=val._id%>">编辑</a>
+            |
+            <a href="/admin/catDel/<%=val._id%>" onclick="return confirm('你确定要删除吗？')">删除</a>
+          </td>
+      </tr>
+      <% }) %>
+    </table>
+  </div>
+<% include footer_min %>

@@ -1,0 +1,54 @@
+<!-- header  -->
+<% include header_min %>
+<!-- 引入百度 富文本 -->
+<script src="/ueditor/ueditor.config.js"></script>
+<script src="/ueditor/ueditor.all.min.js"></script>
+<div class="container">
+	<h3 class="title">添加文章</h3>
+	<form action="/admin/arcInsert" method="post" enctype="multipart/form-data">
+		<div class="input-group form-group">
+		  <span class="input-group-addon">文章标题</span>
+		  <input type="text" name="title" class="form-control">
+		</div>
+		<div class="input-group form-group">
+		  <span class="input-group-addon">所在栏目</span>
+			<select name="catId" id="" class="form-control">
+				<% datalist.forEach(function(val){ %>
+					<option value="<%=val._id%>"><%=val.name%></option>
+				<% })%>
+			</select>
+		</div>
+		<!-- author -->
+		<div class="input-group form-group">
+		  <span class="input-group-addon">作 &nbsp; &nbsp; &nbsp; 者</span>
+		  <input type="text" name="author" class="form-control">
+		</div>
+		<!--keywords-->
+		<div class="form-group input-group">
+			<span class="input-group-addon">关&nbsp; 键&nbsp; 字</span>
+			<textarea class="form-control" name="keywords"></textarea>
+		</div>
+
+		<!-- 展示封面 -->
+		<div class="form-group input-group">
+			<span class="input-group-addon">展示封面</span>
+			<input type="file" name="imgUrl" class="form-control">
+		</div>
+
+		<!-- description -->
+		<div class="form-group input-group">
+			<span class="input-group-addon">文章描述</span>
+			<textarea class="form-control" name="description"></textarea>
+		</div>
+		<textarea name="content" id="content" style="height: 450px;width: 100%;"></textarea>
+		 <div class="form-group input-group">
+			<button type="submit" class="btn btn-default">Submit</button>
+		 </div>
+	</form>
+</div>
+<script type="text/javascript">
+	// 富文本编辑器
+	var ue = UE.getEditor('content');
+</script>
+<!-- footer  -->
+<% include footer_min %>

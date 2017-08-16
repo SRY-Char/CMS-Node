@@ -1,0 +1,25 @@
+
+.listuser-table td.a{
+	vertical-align: middle;
+}
+
+.listuser-table img{
+	width: 30px;
+	height:	30px;
+	border-radius: 10%;
+}
+
+
+.editPic{
+	width:100px;
+	height:100px;
+}
+
+.title{
+	text-align: center;
+	line-height: 100px;
+}
+
+.logo img{width: 100px;position: relative;top: -20px;left: 0px;}
+
+.dis{display: inline-block;}

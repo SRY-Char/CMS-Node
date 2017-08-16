@@ -1,0 +1,44 @@
+<!-- header  -->
+<% include header_min %>
+  <div class="container">
+    <h3 class="title">文章列表</h3>
+    <table class="table listuser-table">
+      <tr>
+        <td>图片</td>
+          <td>标题</td>
+          <td>作者</td>
+          <td>分类名称</td>
+          <td>时间</td>
+      </tr>
+      <% datalist.forEach(function(val){ %>
+      <tr>
+        <td><img src="/<%=val.imgUrl%>"></td>
+        <td class="a"><a href="/index/arc/<%=val._id%>"><%=val.title%></a></td>
+        <td class="a"><%=val.author%></td>
+        <td class="a"><%=val.catId.name%></td>
+        <td class="a"><%=val.ctime.toLocaleString()%></td>
+      </tr>
+      <% }) %>
+    </table>
+    <!-- 分页 -->
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li><a href="/index/arcList/?page=1">首页</a></li>
+        <li>
+          <a href="/index/arcList/?page=<%=page-1%>" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <% for(var i=1;i<=pageMax;i++){%>
+          <li><a href="/index/arcList/?page=<%=i%>"><%=i%></a></li>
+        <%}%>
+        <li>
+          <a href="/index/arcList/?page=<%=-(-page-1)%>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        <li><a href="/index/arcList/?page=<%=pageMax%>">尾页</a></li>
+      </ul>
+    </nav>
+  </div>
+<% include footer_min %>
